@@ -49,7 +49,7 @@ def get_coordinates(place_id, headers):
 def main():
 
     headers = create_headers(os.getenv('BEARER_TOKEN'))
-    keyword = "(anxiety) melbourne lang:en"
+    keyword = "(anxiety OR mental) lang:en"
     max_results = 100
     limit = 1000
     counter = 0
@@ -58,16 +58,17 @@ def main():
     url = create_url(keyword,  max_results)
 
     while counter < limit:
-        tweets = connect_to_endpoint(url[0], headers, url[1], next_token)
+        response = connect_to_endpoint(url[0], headers, url[1], next_token)
+        # (data, meta, include)
 
-        for tweet in tweets["data"]:
+        for tweet in response["data"]:
             print(tweet["text"])
 
-        counter += tweets["meta"]["result_count"]
+        counter += response["meta"]["result_count"]
 
-        if "next_token" in tweets["meta"]:
+        if "next_token" in response["meta"]:
             # move to next batch of tweets
-            next_token = tweets["meta"]["next_token"]
+            next_token = response["meta"]["next_token"]
         else:
             # no more tweets on these keywords
             break
