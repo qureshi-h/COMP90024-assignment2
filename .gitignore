@@ -1,0 +1,9 @@
+res/twitter keys.rtf
+.DS_Store
+
+res/Assignment2.pdf
+
+*.xml
+*.iml
+
+.env
