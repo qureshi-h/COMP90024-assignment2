@@ -7,3 +7,7 @@ res/Assignment2.pdf
 *.iml
 
 .env
+
+*.pem
+
+.idea   
