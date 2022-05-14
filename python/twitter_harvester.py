@@ -24,7 +24,7 @@ def create_url(keyword, max_results=10):
     query_params = {'query': keyword,
                     'max_results': max_results,
                     'expansions': 'geo.place_id',
-                    'tweet.fields': 'id,text,geo,created_at,lang,public_metrics',
+                    'tweet.fields': 'geo,lang',
                     'place.fields': 'full_name,id,country,country_code,geo,name,place_type',
                     'next_token': {"b26v89c19zqg8o3fpywl7qbeqgz6kfe7glnjnzheeucu5"}}
 
@@ -62,12 +62,15 @@ def main():
         # (data, meta, include)
 
         for tweet in response["data"]:
-            print(tweet["text"])
+            # print(tweet)
+            pass
 
         counter += response["meta"]["result_count"]
 
         if "next_token" in response["meta"]:
             # move to next batch of tweets
+            if response["includes"]:
+                print(response["includes"])
             next_token = response["meta"]["next_token"]
         else:
             # no more tweets on these keywords
