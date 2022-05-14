@@ -5,11 +5,10 @@ res/Assignment2.pdf
 
 *.xml
 *.iml
+*.json
 
 .env
 
 *.pem
 
 .idea
-
-
