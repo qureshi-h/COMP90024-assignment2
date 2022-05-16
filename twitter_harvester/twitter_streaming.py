@@ -30,19 +30,25 @@ def main():
 
     url = create_url(keywords, max_results)
 
-    response = connect_to_endpoint(url[0], headers, url[1], next_token)
-    counter = process_tweet(response, server, bounding_box)
-    refresh_url = response['search_metadata']["refresh_url"]
+    # response = connect_to_endpoint(url[0], headers, url[1], next_token)
+    # counter = process_tweet(response, server, bounding_box)
+    # refresh_url = response['search_metadata']["refresh_url"]
     
-    while counter < limit:
-        print(counter, flush=True)
-        response = request_url(refresh_url, headers)
-        counter += process_tweet(response, server, bounding_box)
+    t = {"coordinates": {"coordinates":[
+      145.00857376,
+      -37.80887025]}, "text": "ALeab"}
 
-        refresh_url = response['search_metadata']["refresh_url"]
-        time.sleep(10)
+    process_tweet({"statuses": [t]}, server, bounding_box)
 
-    print("\n", counter, "tweets found!")
+    # while counter < limit:
+    #     print(counter, flush=True)
+    #     response = request_url(refresh_url, headers)
+    #     counter += process_tweet(response, server, bounding_box)
+
+    #     refresh_url = response['search_metadata']["refresh_url"]
+    #     time.sleep(10)
+
+    # print("\n", counter, "tweets found!")
 
 
 
@@ -75,10 +81,11 @@ def setup():
     
 def process_tweet(response, server, bounding_box):
     for tweet in response["statuses"]:
+        print(tweet, flush=True)
         if tweet["coordinates"]:
             print(tweet["coordinates"], flush=True)
-            if not Point(list(map(float, tweet["coordinates"]["coordinates"]))).within(bounding_box):
-                continue
+            # if not Point(list(map(float, tweet["coordinates"]["coordinates"]))).within(bounding_box):
+            #     continue
             print("Found!", tweet["text"], flush=True)
             categories = categorize(tweet["text"])
             region = fetch_coordinates.get_region(tweet["coordinates"]["coordinates"])

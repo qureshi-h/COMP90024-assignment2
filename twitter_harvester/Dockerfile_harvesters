@@ -1,7 +1,7 @@
 FROM python:3
 
 ADD twitter_streaming.py stem_keywords.py fetch_coordinates.py /src/
-ADD ./res/SA3_2021_AUST_GDA2020.shp ./res/vic_lga.shp /res/
+ADD ./res/SA3_2021_AUST_GDA2020.shp ./res/vic_lga.shp /src/res/
 
 ENV BEARER_TOKEN None
 ENV COUCHDB_USERNAME admin  
@@ -12,6 +12,8 @@ ENV BOUNDING_BOX "143.7832,-38.5375,146.1406,-37.0837"
 
 RUN pip install --user -U nltk
 RUN pip install python-dotenv CouchDB requests shapely
-RUN pip install numpy pandas fiona pyproj geopandas
+RUN pip install numpy pandas fiona pyproj pandas
+RUN ls -la /src/res
+
 
 CMD [ "python", "./src/twitter_streaming.py" ]

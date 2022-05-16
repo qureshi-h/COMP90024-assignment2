@@ -5,9 +5,9 @@ from shapely.geometry import Point
 def get_region(coordinates, option="lga"):
     coordinates = Point(coordinates)
 
-    shape_file = "../res/SA3_2021_AUST_GDA2020.shp"
+    shape_file = "./src/res/SA3_2021_AUST_GDA2020.shp"
     if option == "lga":
-        shape_file = '../res/vic_lga.shp'
+        shape_file = './src/res/vic_lga.shp'
 
     gdf = gpd.read_file(shape_file)
     gdf = gdf.to_crs(epsg=4326)
