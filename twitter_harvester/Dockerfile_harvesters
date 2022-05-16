@@ -12,8 +12,6 @@ ENV BOUNDING_BOX "143.7832,-38.5375,146.1406,-37.0837"
 
 RUN pip install --user -U nltk
 RUN pip install python-dotenv CouchDB requests shapely
-RUN pip install numpy pandas fiona pyproj
-RUN ls -la /
-
+RUN pip install numpy pandas fiona pyproj geopandas
 
 CMD [ "python", "./src/twitter_streaming.py" ]

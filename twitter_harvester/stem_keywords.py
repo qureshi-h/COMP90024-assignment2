@@ -23,7 +23,8 @@ all_keywords = {
     "substance abuse": {"substance abuse": {"substance abuse", "overdose", "drugs", "heroin", "meth",
                                             "alcohol", "addiction", "addicted", "alcoholism", "narcotics",
                                             "drug use", "drug abuse"}},
-    "education": {"education": {"education", "school", "graduated", "graduation", "study", "PhD"}}}
+    "education": {"education": {"education", "school", "graduated", "graduation", "study", "PhD"}},
+    "other": {"other" : {""}}}
 
 
 def get_keywords():

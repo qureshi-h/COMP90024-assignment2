@@ -81,7 +81,7 @@ def process_tweet(response, server, bounding_box):
                 continue
             print("Found!", tweet["text"], flush=True)
             categories = categorize(tweet["text"])
-            region = fetch_coordinates.get_region(tweet["doc"]["coordinates"]["coordinates"])
+            region = fetch_coordinates.get_region(tweet["coordinates"]["coordinates"])
             if not categories or not region:
                 return
             for category in categories:
@@ -147,7 +147,7 @@ def get_coordinates(place_id, headers):
 def combine_keywords():
 
     words = stem_keywords.get_keywords()
-    return "(" + " OR ".join([topic for key in words for topic in words[key]]) + ")" + " lang:en"
+    return "(" + " OR ".join([topic for key in words for topic in words[key] if key != "other"]) + ")" + " lang:en"
 
 
 main()
