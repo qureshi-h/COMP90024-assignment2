@@ -53,11 +53,14 @@ def process(file, chunk):
                 if tweet["doc"]["coordinates"]:
                     categories = categorize(tweet["doc"]["text"])
                     region = fetch_coordinates.get_region(tweet["doc"]["coordinates"]["coordinates"])
-                    if not categories or not region:
+                    if not region:
                         continue
                     for category in categories:
                         tweets.append({"region": region, "type": category[0], "subtype": category[1],
                                        "tweet": tweet["doc"]["text"], "coordinates": tweet["doc"]["coordinates"]})
+                    if not categories:
+                        tweets.append({"region": region,"tweet": tweet["doc"]["text"], 
+                        "coordinates": tweet["doc"]["coordinates"]})
 
             except JSONDecodeError:
                 print("JSON Decode Error")
