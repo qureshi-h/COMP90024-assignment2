@@ -30,26 +30,24 @@ def main():
 
     url = create_url(keywords, max_results)
 
-    # response = connect_to_endpoint(url[0], headers, url[1], next_token)
-    # counter = process_tweet(response, server, bounding_box)
-    # refresh_url = response['search_metadata']["refresh_url"]
+    response = connect_to_endpoint(url[0], headers, url[1], next_token)
+    counter = process_tweet(response, server, bounding_box)
+    refresh_url = response['search_metadata']["refresh_url"]
     
     t = {"coordinates": {"coordinates":[
       145.00857376,
-      -37.80887025]}, "text": "ALeab"}
+      -37.80887025]}, "text": "testing"}
+    counter = process_tweet({"statuses":[t]}, server, bounding_box)
 
-    process_tweet({"statuses": [t]}, server, bounding_box)
+    while counter < limit:
+        print(counter, flush=True)
+        response = request_url(refresh_url, headers)
+        counter += process_tweet(response, server, bounding_box)
 
-    # while counter < limit:
-    #     print(counter, flush=True)
-    #     response = request_url(refresh_url, headers)
-    #     counter += process_tweet(response, server, bounding_box)
+        refresh_url = response['search_metadata']["refresh_url"]
+        time.sleep(10)
 
-    #     refresh_url = response['search_metadata']["refresh_url"]
-    #     time.sleep(10)
-
-    # print("\n", counter, "tweets found!")
-
+    print("\n", counter, "tweets found!")
 
 
 def setup():
@@ -66,33 +64,30 @@ def setup():
 
     try:
         bounding_coordinates = os.getenv("BOUNDING_BOX")      
-        points = list(map(float, bounding_coordinates.split(",")))
-        bounding_box = Polygon(((points[2], points[1]), (points[0], points[1]),
-         (points[2], points[3]), (points[0], points[3])))
+        bounding_box = list(map(float, bounding_coordinates.split(",")))
     except:
-        points = list(map(float, default_box.split(",")))
-        bounding_box = Polygon(((points[2], points[1]), (points[0], points[1]),
-         (points[2], points[3]), (points[0], points[3])))
+        bounding_box = list(map(float, default_box.split(",")))
 
     print("Keywords:", keywords, flush=True)
     print("Bounding Box:", bounding_box, flush=True)
 
     return keywords, bounding_box
-    
+
+
 def process_tweet(response, server, bounding_box):
     for tweet in response["statuses"]:
-        print(tweet, flush=True)
         if tweet["coordinates"]:
             print(tweet["coordinates"], flush=True)
-            # if not Point(list(map(float, tweet["coordinates"]["coordinates"]))).within(bounding_box):
-            #     continue
+            x, y = tweet["coordinates"]["coordinates"]
+            if x < bounding_box[0] or x > bounding_box[2] or y < bounding_box[1] or y > bounding_box[3]:
+                continue
             print("Found!", tweet["text"], flush=True)
             categories = categorize(tweet["text"])
             region = fetch_coordinates.get_region(tweet["coordinates"]["coordinates"])
             if not categories or not region:
                 return
             for category in categories:
-                server["tweets"]({"region": region, "type": category[0], "subtype": category[1],
+                server["tweets"].save({"region": region, "type": category[0], "subtype": category[1],
                                   "tweet": tweet["text"], "coordinates": tweet["coordinates"]["coordinates"]})
                 print({"region": region, "type": category[0], "subtype": category[1],
                        "tweet": tweet["text"], "coordinates": tweet["coordinates"]["coordinates"]}, flush=True)
