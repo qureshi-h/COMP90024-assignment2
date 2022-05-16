@@ -41,6 +41,7 @@ def main():
 def process(file, chunk):
     chunk_start, chunk_end = chunk
     tweets = []
+    counter = 0
     with open(file, 'r') as f:
         f.seek(chunk_start)
         f.readline()
@@ -61,6 +62,8 @@ def process(file, chunk):
                     if not categories:
                         tweets.append({"region": region,"tweet": tweet["doc"]["text"], 
                         "coordinates": tweet["doc"]["coordinates"]})
+
+
 
             except JSONDecodeError:
                 print("JSON Decode Error")

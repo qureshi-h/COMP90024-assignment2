@@ -1,0 +1,316 @@
+@font-face {
+    font-family: "Soda Berry";
+    src: local("Soda Berry"),
+        url(./res/fonts/SodaBerry-PK56g.ttf) format("truetype");
+}
+
+@font-face {
+    font-family: "DoodlePenLimited";
+    src: local("DoodlePenLimited"),
+        url(./res/fonts/DoodlePen_Limited.ttf) format("truetype");
+}
+
+@font-face {
+    font-family: "vtks Lemon Drop";
+    src: local("vtks Lemon Drop"),
+        url(./res/fonts/Aloevera-OVoWO.ttf) format("truetype");
+}
+
+@media screen and (max-width: 1200px) {
+    html {
+        font-size: 100%;
+    }
+}
+
+@media screen and (max-width: 1100px) {
+    html {
+        font-size: 95%;
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    html {
+        font-size: 90%;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    html {
+        font-size: 85%;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    html {
+        font-size: 80%;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    html {
+        font-size: 75%;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    html {
+        font-size: 62%;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    body {
+        -webkit-text-size-adjust: none;
+    }
+    html {
+        font-size: 55%;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    body {
+        -webkit-text-size-adjust: none;
+    }
+    html {
+        font-size: 45%;
+    }
+}
+
+@media screen and (max-width: 300px) {
+    body {
+        -webkit-text-size-adjust: none;
+    }
+    html {
+        font-size: 45%;
+    }
+}
+
+@media screen and (max-width: 200px) {
+    html {
+        font-size: 40%;
+    }
+}
+
+@media screen and (max-width: 100px) {
+    html {
+        font-size: 30%;
+    }
+}
+
+h1 {
+    font-family: "vtks Lemon Drop", sans-serif;
+    font-size: 5.5rem;
+    font-weight: 300;
+    color: white;
+}
+
+h2 {
+    font-family: "DoodlePenLimited", sans-serif;
+    font-size: 4.5rem;
+    font-weight: 300;
+    color: rgb(38, 248, 5);
+}
+
+h3 {
+    font-family: "Soda Berry", sans-serif;
+    font-size: 5rem;
+    font-weight: 300;
+    color: rgb(193, 238, 11);
+}
+
+h4 {
+    font-family: "Soda Berry", sans-serif;
+    font-size: 4rem;
+    font-weight: 300;
+    color: rgb(11, 223, 238);
+}
+
+p {
+    font-family: "Sequel", sans-serif;
+    font-size: 2rem;
+    font-weight: 100;
+    color: white;
+}
+
+/* Navbar */
+
+.navbar {
+    width: 100vw;
+    height: 8vh;
+    background-color: rgba(0, 0, 0, 0.103);
+    top: 0vh;
+    left: 0;
+    position: absolute;
+    display: flex;
+    align-items: center;
+}
+
+.navbarText {
+    margin-right: 4vw;
+    cursor: pointer;
+
+    font-family: "Soda Berry", sans-serif;
+    font-size: 3rem;
+    font-weight: 100;
+    color: white;
+
+    text-decoration: none;
+}
+
+.toolsDropdown {
+    position: absolute;
+    transform: translateX(-1vw);
+    z-index: 1;
+    display: block;
+    top: 0vh;
+    padding-top: 8vh;
+    padding-bottom: 0.5vh;
+    padding-right: 2rem;
+}
+
+.toolsDropdownItem {
+    display: block;
+    padding: 1vh 1vw 1vh 1vw;
+
+    width: 100%;
+    margin: auto;
+
+    cursor: pointer;
+}
+
+.toolsDropdownItem:hover {
+    filter: brightness(90%);
+}
+
+.toolsDropdownText {
+    color: white;
+    font-family: "Soda Berry", sans-serif;
+    font-size: 3rem;
+    word-wrap: break-word;
+}
+
+/* Landing Page  */
+
+.landingHeader {
+    text-align: center;
+}
+
+.background {
+    display: inline-block;
+    top: 0;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+        url("./res/Melbourne.jpg.webp");
+    background-size: cover;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Kanye Page */
+
+.kanyeBackground {
+    display: inline-block;
+    top: 0;
+    background-image: url("./res/kanye-background.jpeg");
+    background-size: cover;
+    background-repeat: repeat;
+    justify-content: center;
+    width: 100vw;
+}
+
+.quoteBox {
+    border: 1px solid white;
+    margin: 0vh 0vw 0vh 10vw;
+    width: 25vw;
+    height: auto;
+    display: inline-block;
+}
+
+.kanyeImage {
+    margin: 5vh 0vw 0vh 15vw;
+    width: 35vw;
+    display: inline-block;
+}
+
+.subscription {
+    margin: 15vh 0vw 5vh 0vw;
+}
+
+.subscription input {
+    width: 25vw;
+    height: 5vh;
+    text-indent: 1rem;
+    border-radius: 0.7rem;
+    font-size: 1rem;
+}
+
+/* Countries Page */
+
+.countriesBackground {
+    display: inline-flex;
+    top: 0;
+    background-image: url("./res/flags.jpg");
+    background-size: cover;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+
+    width: 100vw;
+}
+
+.selectCountry {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+
+.selectBox {
+    width: 35vw;
+
+    text-indent: 1.5rem;
+    font-size: 3rem;
+    font-family: "DoodlePenLimited", sans-serif;
+    color: black;
+}
+
+.selectCountry h1 {
+    width: 100vw;
+    color: white;
+    font-size: 3.5rem;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.418);
+}
+
+.selectCountryButton {
+    height: 6vh;
+}
+
+/* Country Info  */
+
+.countryInfo {
+    justify-content: center;
+}
+
+.countryInfo h1 {
+    /* text-align: center; */
+    color: #0df1f1;
+    margin-top: 15vh;
+}
+
+.infoTable {
+    margin: 10vh 0vw 0vh 10vw;
+    width: 30vw;
+}
+
+.countryFlag {
+    display: inline;
+    margin: 10vh 0vw 0vh 10vw;
+}
+
+.countryMap img {
+    margin: 10vh 0vw 0vh 20vw;
+    height: 45vh;
+    border-radius: 100rem;
+}

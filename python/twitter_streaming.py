@@ -49,7 +49,7 @@ def process_tweet(response, server):
             if not categories or not region:
                 return
             for category in categories:
-                server["tweets"]({"region": region, "type": category[0], "subtype": category[1],
+                server["tweets"].save({"region": region, "type": category[0], "subtype": category[1],
                                   "tweet": tweet["text"], "coordinates": tweet["coordinates"]["coordinates"]})
                 print({"region": region, "type": category[0], "subtype": category[1],
                        "tweet": tweet["text"], "coordinates": tweet["coordinates"]["coordinates"]})

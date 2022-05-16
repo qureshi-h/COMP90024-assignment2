@@ -1,8 +1,9 @@
-import os
 from json import JSONDecodeError
 import json
-import fetch_coordinates
 import stem_keywords
+
+import geopandas as gpd
+from shapely.geometry import Point
 
 KEYWORDS = stem_keywords.get_keywords()
 
@@ -10,43 +11,49 @@ KEYWORDS = stem_keywords.get_keywords()
 def main():
 
     file = "../res/twitter-melb.json"
-    categorized_tweets, all_tweets = process(file)
-
-    print(len(categorized_tweets), "tweets extracted")
-    print(len(all_tweets), "tweets extracted")
-
-    with open('categorised_tweets.json', 'w') as outfile:
-        json.dump({"tweets": categorized_tweets}, outfile)
-
-    with open('all_tweets.json', 'w') as outfile:
-        json.dump({"tweets": all_tweets}, outfile)
+    process(file)
 
 
 def process(file):
     tweets = []
-    all_tweets = []
+    output = open("all_tweets.json", "w")
+    output.write('{"docs":[')
+    shape_file = '../res/vic_lga.shp'
+
+    gdf = gpd.read_file(shape_file)
+    gdf = gdf.to_crs(epsg=4326)
+
     with open(file, 'r') as f:
         f.readline()
         for line in f:
             try:
                 tweet = json.loads(line[:-2])
                 if tweet["doc"]["coordinates"]:
-                    categories = categorize(tweet["doc"]["text"])
-                    region = fetch_coordinates.get_region(tweet["doc"]["coordinates"]["coordinates"])
-                    region=" n"
+                    region = get_region(tweet["doc"]["coordinates"]["coordinates"], gdf)
                     if not region:
                         continue
-                    for category in categories:
-                        tweets.append({"region": region, "type": category[0], "subtype": category[1],
-                                       "tweet": tweet["doc"]["text"], "coordinates": tweet["doc"]["coordinates"]})
-                    all_tweets.append({"region": region,"tweet": tweet["doc"]["text"],
-                    "coordinates": tweet["doc"]["coordinates"]})
-
+                    json.dump({"region": region , "tweet": tweet["doc"]["text"],
+                               "coordinates": tweet["doc"]["coordinates"]}, output)
+                    output.write(",\n")
             except JSONDecodeError:
                 print("JSON Decode Error")
                 continue
 
-    return tweets, all_tweets
+    output.write("]}")
+    output.close()
+    return
+
+
+def get_region(coordinates, gdf,option="lga"):
+    coordinates = Point(coordinates)
+
+    for row in gdf.iterrows():
+        if row[1]["geometry"] is not None and row[1]["geometry"].contains(coordinates):
+            if option == "lga":
+                return row[1]["LGA_NAME"]
+            return row[1]["SA3_NAME21"]
+
+    return False
 
 
 def categorize(tweet):
@@ -60,7 +67,6 @@ def categorize(tweet):
                 break
 
     return categories
-
 
 
 if __name__ == '__main__':
