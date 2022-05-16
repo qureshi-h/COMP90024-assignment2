@@ -1,7 +1,7 @@
 FROM python:3
 
 ADD twitter_streaming.py stem_keywords.py fetch_coordinates.py /src/
-ADD ../res/SA3_2021_AUST_GDA2020.shp ../res/vic_lga.shp /res/
+ADD ./res/SA3_2021_AUST_GDA2020.shp ./res/vic_lga.shp /res/
 
 ENV BEARER_TOKEN None
 ENV COUCHDB_USERNAME admin  
@@ -16,4 +16,4 @@ RUN pip install numpy pandas fiona pyproj
 RUN ls -la /
 
 
-CMD [ "python", "./twitter_streaming.py" ]
+CMD [ "python", "./src/twitter_streaming.py" ]
