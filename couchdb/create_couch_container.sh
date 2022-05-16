@@ -37,3 +37,5 @@ docker run -p 0.0.0.0:5984:5984 -d\
 # docker exec -ti 885 sh -c "ls -ltr /opt/couchdb/data"
 
 # curl -XPOST "http://${user}:${pass}@${node}:5984/twitter/_bulk_docs " --header "Content-Type: application/json" --data @./twitter/data.json
+
+# curl -XPOST "http://admin:admin@172.26.133.72:5984/twitter/_bulk_docs " --header "Content-Type: application/json" --data json_data_new.json
