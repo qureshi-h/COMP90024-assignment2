@@ -9,7 +9,7 @@ all_keywords = {
                    "buddhism": {"buddha", "buddhism", "monk", "buddhist"},
                    "judaism": {"jews", "judaism", "rabbi", "torah", "Shacharit", "Mincha", "Ma'ariv", "Mussaf",
                                "kippah", "hanukkah"},
-                   "other": {"God", "religion", "prayer"}
+                   "religion": {"God", "religion", "prayer"}
                    },
     "violence": {"family violence": {"family violence", "abuse", "bruise", "domestic abuse", "forced marriage",
                                      "partner violence", "partner homicide", "sexual abuse", "siblicide",
