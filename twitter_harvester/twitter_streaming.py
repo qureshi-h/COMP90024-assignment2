@@ -21,7 +21,7 @@ def main():
     headers = create_headers(os.getenv('BEARER_TOKEN'))
 
     max_results = 100
-    limit = 1000
+    limit = 200000
     next_token = None
 
     username = os.getenv("COUCHDB_USERNAME")
@@ -45,7 +45,7 @@ def main():
         counter += process_tweet(response, server, bounding_box)
 
         refresh_url = response['search_metadata']["refresh_url"]
-        time.sleep(10)
+        time.sleep(400)
 
     print("\n", counter, "tweets found!")
 
@@ -91,6 +91,7 @@ def process_tweet(response, server, bounding_box):
                                   "tweet": tweet["text"], "coordinates": tweet["coordinates"]["coordinates"]})
                 print({"region": region, "type": category[0], "subtype": category[1],
                        "tweet": tweet["text"], "coordinates": tweet["coordinates"]["coordinates"]}, flush=True)
+            server["all_tweets"].save({"region": region, "tweet": tweet["text"], "coordinates": tweet["coordinates"]["coordinates"]})
     return len(response["statuses"])
 
 
