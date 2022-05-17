@@ -6,5 +6,5 @@ cd twitter_harvester
 # 144.972153,-38.481545,145.648499,-37.785911
 
 docker build -f ./Dockerfile_harvesters -t twitter_harvester:1.0 .
-docker run -p 3000:3000 -d --env BOUNDING_BOX="144.972153,-37.785911,145.648499,-37.463959" app:1.0
+docker run -p 3000:3000 -d --env BOUNDING_BOX="144.972153,-37.785911,145.648499,-37.463959" --env BEARER_TOKEN=${bearer_token} app:1.0
 
