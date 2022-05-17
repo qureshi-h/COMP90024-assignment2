@@ -6,21 +6,21 @@ export const HeatmapAllTweet = ({ stat_field, text }) => {
     const [url, setURL] = useState("");
 
     useEffect(() => {
-      getURL()
-    }, [stat_field, recompute])
+        getURL();
+    }, [stat_field, recompute]);
 
     const getURL = () => {
-        setLoading(true)
-        fetch("http://localhost:5001/heatmap/" + stat_field + "/" + recompute, 
-        {
-            method:"GET"
-        }).then(response => response.json()).then(response=> {
-            setURL(response.path);
-            console.log(response.path);
-            setLoading(false);
+        setLoading(true);
+        fetch("http://localhost:5001/heatmap/" + stat_field + "/" + recompute, {
+            method: "GET",
         })
-            
-    }
+            .then((response) => response.json())
+            .then((response) => {
+                setURL(response.path);
+                console.log(response.path);
+                setLoading(false);
+            });
+    };
 
     return (
         <div
@@ -53,7 +53,7 @@ export const HeatmapAllTweet = ({ stat_field, text }) => {
                     style={{
                         marginLeft: "10vw",
                         color: "white",
-                        fontSize: "4rem",
+                        fontSize: "2rem",
                     }}
                 >
                     {text}

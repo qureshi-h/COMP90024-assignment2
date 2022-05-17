@@ -80,7 +80,7 @@ export const Header = () => {
                                         <h4
                                             style={{
                                                 display: "block",
-                                                fontSize: "4rem",
+                                                fontSize: "2rem",
                                                 justifyContent: "left",
                                                 alignItems: "left",
                                             }}
@@ -91,7 +91,7 @@ export const Header = () => {
                                             style={{
                                                 display: "inline",
                                                 marginLeft: "5vw",
-                                                fontSize: "4rem",
+                                                fontSize: "2rem",
                                                 justifyContent: "left",
                                                 alignItems: "left",
                                             }}

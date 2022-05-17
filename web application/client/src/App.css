@@ -18,37 +18,37 @@
 
 @media screen and (max-width: 1200px) {
     html {
-        font-size: 80%;
+        font-size: 100%;
     }
 }
 
 @media screen and (max-width: 1100px) {
     html {
-        font-size: 75%;
+        font-size: 95%;
     }
 }
 
 @media screen and (max-width: 1000px) {
     html {
-        font-size: 70%;
+        font-size: 90%;
     }
 }
 
 @media screen and (max-width: 900px) {
     html {
-        font-size: 65%;
+        font-size: 85%;
     }
 }
 
 @media screen and (max-width: 800px) {
     html {
-        font-size: 60%;
+        font-size: 80%;
     }
 }
 
 @media screen and (max-width: 700px) {
     html {
-        font-size: 63%;
+        font-size: 75%;
     }
 }
 
@@ -99,28 +99,28 @@
 
 h1 {
     font-family: "vtks Lemon Drop", sans-serif;
-    font-size: 5.5rem;
+    font-size: 3rem;
     font-weight: 300;
     color: white;
 }
 
 h2 {
     font-family: "DoodlePenLimited", sans-serif;
-    font-size: 4.5rem;
+    font-size: 2.5rem;
     font-weight: 300;
     color: rgb(38, 248, 5);
 }
 
 h3 {
     font-family: "Soda Berry", sans-serif;
-    font-size: 5rem;
+    font-size: 2.5rem;
     font-weight: 300;
     color: rgb(193, 238, 11);
 }
 
 h4 {
     font-family: "Soda Berry", sans-serif;
-    font-size: 4rem;
+    font-size: 1.75rem;
     font-weight: 300;
     color: rgb(11, 223, 238);
 }
@@ -151,7 +151,7 @@ p {
     cursor: pointer;
 
     font-family: "Soda Berry", sans-serif;
-    font-size: 3rem;
+    font-size: 1.5rem;
     font-weight: 100;
     color: white;
     z-index: 10;
@@ -188,7 +188,7 @@ p {
 .toolsDropdownText {
     color: white;
     font-family: "Soda Berry", sans-serif;
-    font-size: 3rem;
+    font-size: 1.5rem;
     word-wrap: break-word;
 }
 
@@ -218,6 +218,7 @@ p {
     background-repeat: repeat;
     justify-content: center;
     width: 100vw;
+    background-size: cover;
     height: auto;
 }
 
@@ -273,7 +274,7 @@ p {
     width: 35vw;
 
     text-indent: 1.5rem;
-    font-size: 3rem;
+    font-size: 2rem;
     font-family: "DoodlePenLimited", sans-serif;
     color: black;
 }
@@ -339,7 +340,7 @@ p {
     cursor: pointer;
 
     font-family: "Soda Berry", sans-serif;
-    font-size: 3.5rem;
+    font-size: 1.5rem;
     border-radius: 1rem;
-    padding: 1rem;
+    padding: 0.5rem;
 }

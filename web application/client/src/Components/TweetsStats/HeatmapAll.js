@@ -55,12 +55,9 @@ export const HeatmapAll = ({ loading, setLoading }) => {
                         </div>
                     </div>
 
-                    <h1>Heatmaps</h1>
+                    <h1 style={{ fontSize: "3rem" }}>Heatmaps</h1>
                     <div style={{ display: "flex", justifyContent: "center" }}>
-                        <HeatmapAllTweet
-                            stat_field={"all"}
-                            text="All Tweets"
-                        />
+                        <HeatmapAllTweet stat_field={"all"} text="All Tweets" />
                         <HeatmapAllTweet
                             stat_field={"category"}
                             text="All Categorised Tweets"

@@ -14,7 +14,7 @@ const StyledTableCell = styled(TableCell)(({ theme }) => ({
         color: theme.palette.common.white,
     },
     [`&.${tableCellClasses.body}`]: {
-        fontSize: "2rem",
+        fontSize: "1rem",
     },
 }));
 
@@ -106,8 +106,6 @@ export default function LgaTable({ info, lga, aurin }) {
                 aurin: merged["Regular mental health clients per 1000"],
                 twitter: merged["mental health"],
             },
-
-            
         ]);
     };
 
@@ -119,7 +117,6 @@ export default function LgaTable({ info, lga, aurin }) {
                     sx={{
                         height: "auto",
                         width: "40vw",
-                        zIndex: -1,
                         marginTop: "10vh",
                     }}
                 >
@@ -129,21 +126,21 @@ export default function LgaTable({ info, lga, aurin }) {
                                 <StyledTableCell
                                     colSpan={1}
                                     align="center"
-                                    sx={{ fontSize: "2rem", padding: "1.5vh" }}
+                                    sx={{ fontSize: "1rem", padding: "1.5vh" }}
                                 >
                                     Fields
                                 </StyledTableCell>
                                 <StyledTableCell
                                     colSpan={1}
                                     align="center"
-                                    sx={{ fontSize: "2rem", padding: "1.5vh" }}
+                                    sx={{ fontSize: "1rem", padding: "1.5vh" }}
                                 >
                                     Aurin Data
                                 </StyledTableCell>
                                 <StyledTableCell
                                     colSpan={1}
                                     align="center"
-                                    sx={{ fontSize: "2rem", padding: "1.5vh" }}
+                                    sx={{ fontSize: "1rem", padding: "1.5vh" }}
                                 >
                                     Tweet Counts
                                 </StyledTableCell>

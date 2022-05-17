@@ -43,7 +43,7 @@ export const LgaLookup = () => {
 
     return (
         <div className="selectCountry">
-            <h1 style={{ fontSize: "6rem" }}>
+            <h1 style={{ fontSize: "3.5rem" }}>
                 Select a LGA to find out more...
             </h1>
             <Select
@@ -63,8 +63,8 @@ export const LgaLookup = () => {
                 sx={{
                     marginLeft: "1.5vw",
                     borderRadius: "0.5rem",
-                    fontSize: "2rem",
-                    padding: "3rem",
+                    fontSize: "1.5rem",
+                    padding: "1rem",
                 }}
                 onClick={handleClick}
             >

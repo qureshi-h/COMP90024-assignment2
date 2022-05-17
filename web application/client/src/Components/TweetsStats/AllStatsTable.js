@@ -14,7 +14,7 @@ const StyledTableCell = styled(TableCell)(({ theme }) => ({
         color: theme.palette.common.white,
     },
     [`&.${tableCellClasses.body}`]: {
-        fontSize: "2rem",
+        fontSize: "1rem",
     },
 }));
 
@@ -66,7 +66,11 @@ export default function AllStatsTable({ info }) {
     return (
         <TableContainer
             component={Paper}
-            sx={{ height: "50vh", width: "60vw", zIndex: -1 }}
+            sx={{
+                height: "50vh",
+                width: "50vw",
+                overflow: "scroll",
+            }}
         >
             <Table stickyHeader aria-label="customized table">
                 <TableHead>
@@ -74,42 +78,42 @@ export default function AllStatsTable({ info }) {
                         <StyledTableCell
                             colSpan={1}
                             align="center"
-                            sx={{ fontSize: "2rem" }}
+                            sx={{ fontSize: "1rem" }}
                         >
                             LGA Name
                         </StyledTableCell>
                         <StyledTableCell
                             colSpan={1}
                             align="center"
-                            sx={{ fontSize: "2rem" }}
+                            sx={{ fontSize: "1rem" }}
                         >
                             Education
                         </StyledTableCell>
                         <StyledTableCell
                             colSpan={1}
                             align="center"
-                            sx={{ fontSize: "2rem" }}
+                            sx={{ fontSize: "1rem" }}
                         >
                             Religion
                         </StyledTableCell>
                         <StyledTableCell
                             colSpan={1}
                             align="center"
-                            sx={{ fontSize: "2rem" }}
+                            sx={{ fontSize: "1rem" }}
                         >
                             Substance Abuse
                         </StyledTableCell>
                         <StyledTableCell
                             colSpan={1}
                             align="center"
-                            sx={{ fontSize: "2rem" }}
+                            sx={{ fontSize: "1rem" }}
                         >
                             Violence
                         </StyledTableCell>
                         <StyledTableCell
                             colSpan={1}
                             align="center"
-                            sx={{ fontSize: "2rem" }}
+                            sx={{ fontSize: "1rem" }}
                         >
                             Mental Health
                         </StyledTableCell>
