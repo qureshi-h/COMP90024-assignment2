@@ -6,17 +6,7 @@ import { NavigationBar } from "../Components/UIElements/NavigationBar";
 import { useParams } from "react-router-dom";
 
 export const EducationTweets = () => {
-    const stat = useParams().stat_field
-    const [stat_field, setstat_field] = useState(useParams().stat_field);
-    const [url, setURL] = useState("http://localhost:5001/heatmap/" + stat_field.toLowerCase() + "/");
-    console.log(stat_field);
-
-    useEffect(() => {
-      setstat_field(stat)
-      setURL("http://localhost:5001/heatmap/" + stat_field.toLowerCase() + "/")
-    }, [stat])
-    
-
+    const {stat_field} = useParams();
     return (
         <div className="kanyeBackground">
             <Helmet>
@@ -29,11 +19,11 @@ export const EducationTweets = () => {
                     <h1>{stat_field} Heatmaps</h1>
                     <div style={{ display: "flex", justifyContent: "center" }}>
                         <HeatmapAllTweet
-                            url="http://localhost:5001/heatmap/all/"
+                            stat_field="all"
                             text="All Tweets"
                         />
                         <HeatmapAllTweet
-                            url={url}
+                            stat_field={stat_field}
                             text={"All " + stat_field + " Tweets"}
                         />
                     </div>

@@ -58,11 +58,11 @@ export const HeatmapAll = ({ loading, setLoading }) => {
                     <h1>Heatmaps</h1>
                     <div style={{ display: "flex", justifyContent: "center" }}>
                         <HeatmapAllTweet
-                            url="http://localhost:5001/heatmap/all/"
+                            stat_field={"all"}
                             text="All Tweets"
                         />
                         <HeatmapAllTweet
-                            url="http://localhost:5001/heatmap/category/"
+                            stat_field={"category"}
                             text="All Categorised Tweets"
                         />
                     </div>

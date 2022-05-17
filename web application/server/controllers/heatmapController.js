@@ -4,23 +4,21 @@ const fs = require("fs");
 exports.all_tweets_heatmap = async (req, res) => {
     try {
         const { type, recompute } = req.params;
-        const path = "../plots/" + type + "TweetsHeatMap.html";
+        const path = "plots/" + type.toLowerCase() + "TweetsHeatMap.html";
 
         if (recompute === "true" || !fs.existsSync(path)) {
+            console.log("recomputing");
             const script = "analysis_scripts/heatmap_maker_" + type + ".py";
-
-            console.log(script);
 
             const { stdout, stderr } = spawnSync(
                 "/Users/hamzaqureshi/opt/anaconda3/envs/COMP90024-assignment2/bin/python",
                 ["-u", script]
             );
 
-            res.sendFile(`${stdout}`, { root: __dirname + "/.." });
+            res.status(200).json({path: "http://localhost:5001/" + path});
         } else {
-            res.sendFile(path, {
-                root: __dirname
-            });
+            console.log("http://localhost:5001/" + path);
+            res.status(200).json({path: "http://localhost:5001/" + path})
         }
     } catch (err) {
         res.status(400).json({

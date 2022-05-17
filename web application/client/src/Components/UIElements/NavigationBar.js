@@ -2,7 +2,7 @@ import React from "react";
 import { Dropdown } from "./Dropdown";
 
 const statistics = [
-    { name: "All", path: "/All" },
+    { name: "All", path: "/all_tweets" },
     { name: "Religon", path: "/Religion" },
     { name: "Education", path: "/Education" },
     { name: "Substance Abuse", path: "/Substance_Abuse" },

@@ -1,7 +1,23 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
-export const HeatmapAllTweet = ({ url, text }) => {
+export const HeatmapAllTweet = ({ stat_field, text }) => {
     const [recompute, setRecompute] = useState("false");
+    const [url, setURL] = useState("");
+
+    useEffect(() => {
+      getURL()
+    }, [stat_field, recompute])
+
+    const getURL = () => {
+        fetch("http://localhost:5001/heatmap/" + stat_field + "/" + recompute, 
+        {
+            method:"GET"
+        }).then(response => response.json()).then(response=> {
+            setURL(response.path);
+            console.log(response.path);
+        })
+            
+    }
 
     return (
         <div
@@ -41,7 +57,7 @@ export const HeatmapAllTweet = ({ url, text }) => {
                 </h3>
             </div>
             <iframe
-                src={url + recompute}
+                src={url}
                 style={{
                     width: "35vw",
                     height: "35vh",
