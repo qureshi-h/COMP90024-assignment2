@@ -1,0 +1,29 @@
+FROM node:alpine3.11
+
+# Create an application directory
+RUN mkdir -p /server
+
+# The /server directory should act as the main serverlication directory
+WORKDIR /server
+
+# Copy the server package and package-lock.json file
+COPY client/ /
+
+# Install node packages
+RUN npm install
+
+# Build the app
+RUN npm run build
+
+# Expose $PORT on container.
+# We use a varibale here as the port is something that can differ on the environment.
+ENV PORT 5001
+
+# Set host to localhost / the docker image
+ENV NUXT_HOST=0.0.0.0
+
+# Set app port
+ENV NUXT_PORT=PORT
+
+# Start the app
+CMD [ "node", "app.js" ]
