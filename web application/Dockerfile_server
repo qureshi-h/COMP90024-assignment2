@@ -3,6 +3,8 @@ FROM node:alpine3.11
 # Create an application directory
 RUN mkdir -p /server
 
+RUN apt-get update || : && apt-get install python -y
+RUN pip install requests numpy pandas geopandas
 # The /server directory should act as the main serverlication directory
 WORKDIR /server
 
