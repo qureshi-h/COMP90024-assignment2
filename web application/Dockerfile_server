@@ -1,21 +1,20 @@
-FROM node:alpine3.11
+FROM node:latest
 
 # Create an application directory
 RUN mkdir -p /server
 
 RUN apt-get update || : && apt-get install python -y
+RUN apt install python3-pip -y
 RUN pip install requests numpy pandas geopandas
 # The /server directory should act as the main serverlication directory
 WORKDIR /server
 
 # Copy the server package and package-lock.json file
-COPY client/ /
+COPY server/ ./
 
 # Install node packages
 RUN npm install
 
-# Build the app
-RUN npm run build
 
 # Expose $PORT on container.
 # We use a varibale here as the port is something that can differ on the environment.
@@ -29,3 +28,4 @@ ENV NUXT_PORT=PORT
 
 # Start the app
 CMD [ "node", "app.js" ]
+
