@@ -106,5 +106,5 @@ for i in range(len(df)):
     heat_map.add_child(feature)
     heat_map.keep_in_front(feature)
 
-heat_map.save('plots/allTweetsHeatMap.html')
-print("plots/allTweetsHeatMap.html", end="")
+heat_map.save('plots/all.html')
+print("plots/all.html", end="")

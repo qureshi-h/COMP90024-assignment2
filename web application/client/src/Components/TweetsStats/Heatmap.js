@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 
 export const HeatmapAllTweet = ({ stat_field, text }) => {
     const [recompute, setRecompute] = useState("false");
+    const [loading, setLoading] = useState(true);
     const [url, setURL] = useState("");
 
     useEffect(() => {
@@ -9,12 +10,14 @@ export const HeatmapAllTweet = ({ stat_field, text }) => {
     }, [stat_field, recompute])
 
     const getURL = () => {
+        setLoading(true)
         fetch("http://localhost:5001/heatmap/" + stat_field + "/" + recompute, 
         {
             method:"GET"
         }).then(response => response.json()).then(response=> {
             setURL(response.path);
             console.log(response.path);
+            setLoading(false);
         })
             
     }
@@ -64,6 +67,7 @@ export const HeatmapAllTweet = ({ stat_field, text }) => {
                     display: "inline-block",
                 }}
             />
+            {loading && <h4>Loading...</h4>}
         </div>
     );
 };

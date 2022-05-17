@@ -106,5 +106,5 @@ for i in range(len(df)):
     heat_map.keep_in_front(feature)
 
 
-heat_map.save('plots/substance_AbuseTweetsHeatMap.html')
-print("plots/substance_abuseTweetsHeatMap.html", end="")
+heat_map.save('plots/substance_abuse.html')
+print("plots/substance_abuse.html", end="")

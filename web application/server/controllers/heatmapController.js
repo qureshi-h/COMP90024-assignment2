@@ -4,7 +4,7 @@ const fs = require("fs");
 exports.all_tweets_heatmap = async (req, res) => {
     try {
         const { type, recompute } = req.params;
-        const path = "plots/" + type.toLowerCase() + "TweetsHeatMap.html";
+        const path = "plots/" + type.toLowerCase() + ".html";
 
         if (recompute === "true" || !fs.existsSync(path)) {
             console.log("recomputing");
