@@ -5,7 +5,7 @@ from dotenv import load_dotenv
 import couchdb
 import requests
 
-# import fetch_coordinates
+import fetch_coordinates
 import stem_keywords
 
 KEYWORDS = stem_keywords.get_keywords()
@@ -27,6 +27,7 @@ def main():
 
     url = create_url(keyword, max_results)
 
+    # extract weets until limit is reached
     response = connect_to_endpoint(url[0], headers, url[1], next_token)
     counter = process_tweet(response, server)
     refresh_url = response['search_metadata']["refresh_url"]
@@ -44,8 +45,7 @@ def process_tweet(response, server):
     for tweet in response["statuses"]:
         if tweet["coordinates"]:
             categories = categorize(tweet["text"])
-            # region = fetch_coordinates.get_region(tweet["doc"]["coordinates"]["coordinates"])
-            region = "Melbourne"
+            region = fetch_coordinates.get_region(tweet["doc"]["coordinates"]["coordinates"])
             if not categories or not region:
                 return
             for category in categories:
