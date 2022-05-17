@@ -14,7 +14,7 @@ function App() {
                 <Routes>
                     <Route path="/" element={<LandingPage />} />
                     <Route path="/all_tweets" element={<AllTweets />} />
-                    <Route path="/education" element={<EducationTweets />} />
+                    <Route path="/:stat_field" element={<EducationTweets />} />
                     <Route
                         path="/lga_lookup"
                         element={<CountriesSearchPage />}

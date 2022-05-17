@@ -4,15 +4,16 @@ import { HeatmapAll } from "../Components/TweetsStats/HeatmapAll";
 import { NavigationBar } from "../Components/UIElements/NavigationBar";
 
 export const AllTweets = () => {
+    const [loading, setLoading] = useState(true);
     return (
-        <div className="kanyeBackground">
+        <div>
             <Helmet>
                 <title>Explore Melbourne Livibility | Home</title>
-                <style>{"body { background-color: #28004d; }"}</style>
+                <style>{"body { background-color: #05032e; }"}</style>
             </Helmet>
-            <NavigationBar />
+            <NavigationBar opacity={0.85} />
             <div className="heatmap">
-                <HeatmapAll />
+                <HeatmapAll loading={loading} setLoading={setLoading} />
             </div>
         </div>
     );

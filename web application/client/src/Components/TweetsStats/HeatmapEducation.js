@@ -32,7 +32,7 @@ export const HeatmapEducation = () => {
                         color: "white",
                     }}
                 >
-                    All Categorized Tweets
+                    All Education Tweets
                 </h3>
             </div>
             <iframe

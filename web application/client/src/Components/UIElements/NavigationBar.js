@@ -2,12 +2,11 @@ import React from "react";
 import { Dropdown } from "./Dropdown";
 
 const statistics = [
-    { name: "All", path: "/all_tweets" },
-    { name: "Religon", path: "/religon" },
-    { name: "Education", path: "/education" },
-    { name: "Mental Health", path: "/mental_health" },
-    { name: "Substance Abuse", path: "/substance_abuse" },
-    { name: "Violence", path: "/violence" },
+    { name: "All", path: "/All" },
+    { name: "Religon", path: "/Religion" },
+    { name: "Education", path: "/Education" },
+    { name: "Substance Abuse", path: "/Substance_Abuse" },
+    { name: "Violence", path: "/Violence" },
 ];
 
 export const NavigationBar = ({ opacity }) => {

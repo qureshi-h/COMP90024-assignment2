@@ -7,9 +7,7 @@ import InfoTable from "./InfoTable";
 export const CountryInfo = ({ country }) => {
     const [info, setInfo] = React.useState(null);
 
-    React.useEffect(() => {
-        getInfo();
-    }, []);
+ 
 
     const getInfo = () => {
         fetch(`https://restcountries.com/v3.1/name/${country}`, {

@@ -4,6 +4,7 @@ const bodyParser = require("body-parser");
 
 const tweetRoutes = require("./routes/tweets");
 const heatmapRoutes = require("./routes/heatmap");
+const statsRoutes = require("./routes/stats");
 
 const PORT = process.env.PORT || 5001;
 
@@ -19,6 +20,7 @@ app.use("/plots", express.static("plots"));
 // Routes
 app.use("/tweets", tweetRoutes);
 app.use("/heatmap", heatmapRoutes);
+app.use("/stats", statsRoutes);
 
 app.listen(PORT, () => {
     console.log("CORS-enabled web server listening on port", PORT);
