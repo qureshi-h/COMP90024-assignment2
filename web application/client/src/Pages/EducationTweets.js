@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { Helmet } from "react-helmet";
-import { HeatmapAll } from "../Components/TweetsStats/HeatmapAll";
+import { HeatmapEducation } from "../Components/TweetsStats/HeatmapEducation";
 import { NavigationBar } from "../Components/UIElements/NavigationBar";
 
-export const AllTweets = () => {
+export const EducationTweets = () => {
     return (
         <div className="kanyeBackground">
             <Helmet>
@@ -12,7 +12,7 @@ export const AllTweets = () => {
             </Helmet>
             <NavigationBar />
             <div className="heatmap">
-                <HeatmapAll />
+                <HeatmapEducation />
             </div>
         </div>
     );
