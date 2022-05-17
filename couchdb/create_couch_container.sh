@@ -30,6 +30,14 @@ docker run -p 0.0.0.0:5984:5984 -d\
       --env ERL_FLAGS="-setcookie \"${cookie}\" -name \"couchdb@${node}\""\
       ibmcom/couchdb3:${VERSION}
 
+
+# enable cors 
+curl -sL https://deb.nodesource.com/setup_16.x | sudo -E bash -
+sudo apt-get install -y nodejs build-essential
+sudo npm install npm -g
+sudo npm install -g add-cors-to-couchdb
+add-cors-to-couchdb http://localhost:5984 -u admin -p admin
+
 # sudo ss -tulpn | grep LISTEN
 
 # curl -XPUT "http://${user}:${pass}@${node}:5984/twitter"

@@ -1,5 +1,5 @@
-export declare -a nodes=(172.26.129.145 172.26.133.72)
-export masternode=172.26.129.145
+export declare -a nodes=(172.26.132.237 172.26.133.72)
+export masternode=172.26.132.237
 export declare -a othernodes=`echo ${nodes[@]} | sed s/${masternode}//`
 export size=${#nodes[@]}
 export user='admin'
