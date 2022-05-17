@@ -1,7 +1,7 @@
 import React from "react";
 
 import Select from "react-select";
-import lgas from "./lga_names.json";
+import lgas from "../../res/lga_names.json";
 import Button from "@mui/material/Button";
 
 import { useNavigate } from "react-router-dom";

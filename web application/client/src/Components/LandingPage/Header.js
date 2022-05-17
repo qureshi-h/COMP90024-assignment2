@@ -74,7 +74,7 @@ export const Header = () => {
                                             justifyContent: "center",
                                             alignItems: "left",
                                             display: "flex",
-                                            height: "5vh",
+                                            height: "4vh",
                                         }}
                                     >
                                         <h4

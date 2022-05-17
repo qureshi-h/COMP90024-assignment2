@@ -39,3 +39,9 @@ docker run -p 0.0.0.0:5984:5984 -d\
 # curl -XPOST "http://${user}:${pass}@${node}:5984/twitter/_bulk_docs " --header "Content-Type: application/json" --data @./twitter/data.json
 
 # curl -XPOST "http://admin:admin@172.26.133.72:5984/twitter/_bulk_docs " --header "Content-Type: application/json" --data json_data_new.json
+
+# curl -X PUT http://172.26.133.72:5984/_node/_local/_config/couchdb/os_process_timeout -d '"35000"' -u admin:admin
+
+# docker build -t couchdb-node:1.0 .
+
+# docker run -p 0.0.0.0:5984:5984 -d -v data:/opt/couchdb/data couchdb-node:1.0

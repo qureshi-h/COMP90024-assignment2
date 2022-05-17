@@ -10,7 +10,7 @@ load_dotenv()
 
 username = os.getenv("COUCHDB_USERNAME")
 password = os.getenv("COUCHDB_PASSWORD")
-server = couchdb.Server("http://%s:%s@172.26.133.72:5984/" % (username, password))
+server = couchdb.Server("http://%s:%s@172.26.129.233:5984/" % (username, password))
 
 print([file for file in server])
 

@@ -1,0 +1,14 @@
+version: '3'
+services:
+  couchserver:
+    image: couchdb
+    restart: always
+    ports:
+      - "5984:5984"
+    environment:
+      - COUCHDB_USER=admin
+      - COUCHDB_PASSWORD=admin
+      - cookie=a192aeb9904e6590849337933b000c99
+      - ERL_FLAGS="-setcookie \"${cookie}\" -name \"couchdb@${node}\""\
+    volumes:
+        - ./dbdata:/opt/couchdb/data

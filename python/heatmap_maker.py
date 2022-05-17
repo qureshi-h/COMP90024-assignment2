@@ -1,16 +1,14 @@
 import folium
 import numpy as np
-import pandas as pd
 import json
 import requests
-import shapefile as shp
 import geopandas as gpd
 
 regionTweets = requests.get('http://admin:admin@172.26.133.72:5984/tweets/_design/CountSpecs/_view/RegionNumberofTweetsCounter?group=true')
 regionTweetsJson = json.loads(regionTweets.text)
 
 
-shp_path = "LGA_Information\\feb22_vic_lga_polygon_shp\\VIC_LGA_POLYGON_shp\\vic_lga.shp"
+shp_path = "../res/vic_lga.shp"
 
 df = gpd.read_file(shp_path)
 df['geoid'] = df.index.astype(str)
@@ -26,7 +24,7 @@ df_min_max_scaled = df.copy()
 # apply normalization techniques by Column 1
 column = 'numberOfTweets'
 df_min_max_scaled['numberOfTweets'] = df_min_max_scaled['numberOfTweets']+1
-print(df_min_max_scaled)
+# print(df_min_max_scaled)
 df_min_max_scaled['numberOfTweets'] = np.log(df_min_max_scaled['numberOfTweets'])
 df_min_max_scaled['numberOfTweets'] = df_min_max_scaled['numberOfTweets']+1
 # print(df_min_max_scaled)

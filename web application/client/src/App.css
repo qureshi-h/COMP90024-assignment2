@@ -314,3 +314,29 @@ p {
     height: 45vh;
     border-radius: 100rem;
 }
+
+.hashmapAll {
+    /* width: 10vw; */
+    display: flex;
+    /* align-items: center; */
+    justify-content: center;
+    width: 100vw;
+    height: 100vh;
+    text-align: center;
+    margin-top: 15vh;
+}
+
+.recomputeButton {
+    display: block;
+    background-color: #09ff07;
+    border: none;
+
+    background-color: #09ff07;
+    border: none;
+    cursor: pointer;
+
+    font-family: "Soda Berry", sans-serif;
+    font-size: 3.5rem;
+    border-radius: 1rem;
+    padding: 1rem;
+}
